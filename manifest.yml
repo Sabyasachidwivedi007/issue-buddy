@@ -1,0 +1,23 @@
+modules:
+  jira:issuePanel:
+    - key: issue-buddy-panel
+      resource: main
+      resolver: resolver
+      title: Issue Buddy AI
+      icon: https://cdn-icons-png.flaticon.com/512/3159/3159066.png
+resources:
+  - key: main
+    path: static/issue-buddy
+    tunnel:
+      port: 3000
+permissions:
+  external:
+    fetch:
+      backend:
+        - https://api.openai.com
+  scopes:
+    - read:jira-work
+    - write:jira-work
+    - read:jira-user
+app:
+  id: your-app-id
